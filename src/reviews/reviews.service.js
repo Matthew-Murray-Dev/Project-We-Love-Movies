@@ -7,7 +7,7 @@ function list() {
 function read(review_Id) {
   return knex("reviews").select("*").where({ review_Id }).first();
 }
-
+//critic object for appending
 const addCritic = mapProperties({
   c_critic_id: "critic.critic_id",
   preferred_name: "critic.preferred_name",
@@ -18,6 +18,7 @@ const addCritic = mapProperties({
 });
 
 function listReviews(query_Id, reviewIdCheck = false) {
+  //same function lists reviews filtered by movie_ID or review_ID
   const outputId = reviewIdCheck
     ? { "r.review_Id": query_Id }
     : { "r.movie_Id": query_Id };
@@ -36,7 +37,6 @@ function listReviews(query_Id, reviewIdCheck = false) {
 }
 
 function update(updatedReview) {
-  //your solution here
   return knex("reviews")
     .select("*")
     .where({ review_id: updatedReview.review_id })
@@ -44,7 +44,6 @@ function update(updatedReview) {
 }
 
 function destroy(review_id) {
-  //your solution here
   return knex("reviews").where({ review_id }).del();
 }
 

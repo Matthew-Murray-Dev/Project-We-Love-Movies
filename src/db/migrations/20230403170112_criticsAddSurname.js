@@ -2,6 +2,8 @@
  * @param { import("knex").Knex } knex
  * @returns { Promise<void> }
  */
+
+//Added missing column
 exports.up = function(knex) {
     return knex.schema.table("critics", (table) => {
         

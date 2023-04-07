@@ -12,11 +12,11 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
-
+//Routes
 app.use("/movies", moviesRouter);
 app.use("/reviews", reviewsRouter);
 app.use("/theaters", theatersRouter);
-
+//Error handling
 app.use(notFound);
 app.use(errorHandler);
 
